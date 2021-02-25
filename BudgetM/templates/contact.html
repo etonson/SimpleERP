@@ -1,0 +1,42 @@
+<!-- login.html (SimpleERP project) -->
+{% extends "base.html" %}
+
+{% block title %}合約預算總表{% endblock %}
+
+{% block content %}
+<div class='container'>
+{% if message %}
+    <div class='alert alert-warning'>{{ message }}</div>
+{% endif %}
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='panel panel-default'>
+            <div class='panel-heading' align=center>
+            <h3>合約預算總表</h3>
+    </div>
+</div>
+<form action='.' method='POST'>
+    {% csrf_token %}
+        <table>
+            {{ ContractChoiceForm_form.as_table }}
+        </table>
+    <input type='submit' value='確定'><br/>
+</form>
+
+<table width="100%" height="80" border="1">
+  <tr>
+　    <td align="center" colspan="5">合約名稱</td>
+　  </tr>
+
+　  <tr>
+    <td width="150px" nowrap>系統ID</td>
+　   <td width="200px" nowrap>規格</td>
+    <td width="200px" nowrap>名稱</td>
+    <td width="200px" nowrap>數量</td>
+    <td width="200px" nowrap>單位</td>
+　  </tr>
+</table>
+
+</div>
+{% endblock %}
+
